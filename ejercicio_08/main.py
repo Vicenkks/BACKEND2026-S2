@@ -75,3 +75,10 @@ def actualizar_libros(
 
 # DELETE /libros/{libro_id}
 
+@app.delete("/libros/{libro_id}")
+def eliminar_libros(libro_id: int):
+
+    if libro_id not in libros:
+        return {"error": "Libro no encontrado"}
+
+    return libros.pop(libro_id)
